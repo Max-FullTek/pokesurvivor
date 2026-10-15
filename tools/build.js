@@ -61,6 +61,8 @@ html = html.replace(/<meta name="robots" content="noindex">\s*/, '');
 const SIN_SEO = process.argv.includes('--sin-seo');
 html = SIN_SEO ? html.replace(/<!-- seo:begin -->[\s\S]*?<!-- seo:end -->\n?/g, '') : html.replace(/<!-- seo:(begin|end) -->\n?/g, '');
 html = html.replace(/<!-- dev.html: página fuente[^>]*-->/, '<!-- GENERADO desde dev.html por tools/build.js: no editar a mano (se edita dev.html). -->');
+// Removing SEO blocks can leave indentation-only lines in the generated HTML.
+html = html.replace(/[ \t]+(?=\r?$)/gm, '');
 fs.writeFileSync(OUT, html);
 // Versión publicada: los jugadores la miran cada 5 min y, si cambia, el juego se
 // actualiza solo (en el menú, o al acabar la partida). Ver js/core/updater.js.

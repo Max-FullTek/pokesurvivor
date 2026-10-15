@@ -1,5 +1,14 @@
 # Créditos
 
+## Traditional Chinese translations (this fork)
+
+Static translation data in `js/data/lang-zh-hant.js` is adapted from Kai5106's
+[PokéSurvivor 繁體中文補丁 v1.3.3](https://greasyfork.org/zh-TW/scripts/599869),
+licensed MIT. The source's MIT copyright/permission notice is preserved in that
+file. Pokémon name data comes from PokeAPI (Traditional Chinese, language 4).
+Only the dictionary is reused; the userscript runtime is not included.
+The game itself remains under the upstream noncommercial license below/in LICENSE.
+
 ## Sprites
 
 Los sprites estilo *Pokémon Mundo Misterioso* vienen de

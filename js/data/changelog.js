@@ -6,6 +6,7 @@
  * Cada línea en español y en inglés.
  */
 G.CHANGELOG = [
+  {"d": "2026-10-15", "title": ["繁體中文與 Windows 手把支援", "Traditional Chinese and Windows gamepad support", "繁體中文與 Windows 手把支援"], "new": [["Se añade chino tradicional a Ajustes > Gráficos > Idioma.", "Traditional Chinese is available in Settings > Graphics > Language.", "設定 → 畫面 → 語言，可選擇繁體中文。"], ["Mando estándar: movimiento analógico, cambio de ataques, pausa y navegación de menús.", "Standard gamepad: analog movement, move switching, pause and menu navigation.", "標準手把支援類比移動、切換招式、暫停及選單導航。"]], "chg": [["Esta versión derivada guarda sólo en este navegador y no utiliza los servidores del autor.", "This fork saves locally in this browser and does not use the original author’s servers.", "此衍生版只在目前瀏覽器儲存進度，不使用原作者的伺服器。"]]},
   { d: '2026-10-14', title: ['Recupera tu cuenta con Gmail', 'Recover your account with Gmail'], new: [
     ['Si juegas con nombre y contraseña, puedes vincular tu Gmail: si un día olvidas la contraseña, entras con Google y es tu misma cuenta. Te lo ofrecemos al entrar.',
      'If you play with a name and password, you can link your Gmail: if you ever forget your password, sign in with Google and it is the same account. We offer it when you sign in.'],

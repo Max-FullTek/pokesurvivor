@@ -22,7 +22,7 @@ G.I18n = (() => {
   try { saved = localStorage.getItem(KEY); } catch (e) { /* nada */ }
   const byPath = /\/en(\/|$)/.test(location.pathname) ? 'en' : null;
   const nav = ((navigator.languages && navigator.languages[0]) || navigator.language || 'es').toLowerCase();
-  const lang = saved === 'es' || saved === 'en' ? saved : byPath || (nav.startsWith('es') ? 'es' : 'en');
+  const lang = ['es', 'en', 'zh-Hant'].includes(saved) ? saved : byPath || (nav.startsWith('zh') ? 'zh-Hant' : nav.startsWith('es') ? 'es' : 'en');
   document.documentElement.lang = lang;
 
   const exact = new Map(), exactLow = new Map();
@@ -32,7 +32,8 @@ G.I18n = (() => {
   const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   /** Añade traducciones { 'texto en español': 'English text' }. */
-  function add(dict) {
+  function add(dict, locale = lang) {
+    if (locale !== lang) return;
     const fr = [];
     for (const [es, en] of Object.entries(dict)) {
       if (!en || es === en) continue;
@@ -146,7 +147,12 @@ G.I18n = (() => {
     const P = CanvasRenderingContext2D.prototype;
     for (const k of ['fillText', 'strokeText', 'measureText']) {
       const orig = P[k];
-      P[k] = function (s, ...a) { return orig.call(this, typeof s === 'string' ? t(s) : s, ...a); };
+      P[k] = function (s, ...a) {
+        const font = this.font;
+        if (lang === 'zh-Hant') this.font = font.replace(/Pixelify/g, '"Microsoft JhengHei"');
+        try { return orig.call(this, typeof s === 'string' ? t(s) : s, ...a); }
+        finally { if (lang === 'zh-Hant') this.font = font; }
+      };
     }
     const oc = window.confirm, oa = window.alert;
     window.confirm = s => oc.call(window, t(s));

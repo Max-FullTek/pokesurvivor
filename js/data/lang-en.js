@@ -576,4 +576,13 @@ G.I18n.add({
   'Reportar marca sospechosa': 'Report suspicious record', 'Ya la has reportado': 'You already reported it',
   'Ya has reportado esta marca': 'You already reported this record',
   '¿Reportar la marca de {x} como trampa?': "Report {x}'s record as cheating?", 'Gracias: la revisaremos': 'Thanks: we will review it'
-});
+}, 'en');
+
+// Windows controller controls (this fork).
+G.I18n.add({
+  "Mando (Windows)": "Gamepad (Windows)",
+  "Conecta un mando y pulsa un botón.": "Connect a controller and press a button so the browser can detect it.",
+  "Stick izquierdo: moverse · Cruceta: movimientos 1–4 · LB/RB: cambiar movimiento · Start: pausa.": "Left stick: move · D-pad: move slots 1–4 · LB/RB: switch moves · Start: pause.",
+  "Menús: stick o cruceta para navegar · A: confirmar · B: volver · X: cambiar cartas.": "Menus: stick or D-pad to navigate · A: confirm · B: back · X: reroll cards.",
+  "Los nombres de los botones siguen las posiciones de Xbox. Para escribir el nombre y la contraseña, usa el teclado.": "Button names use Xbox positions. Use the keyboard to enter your name and password."
+}, 'en');

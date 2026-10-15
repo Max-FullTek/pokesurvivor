@@ -1,0 +1,21 @@
+{
+  "name": "pokesurvivor-windows-zh-hant",
+  "version": "1.0.0",
+  "description": "Direct fork of JPTER78/PokeSurvivor with Traditional Chinese and standard browser gamepad support",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "build": "node tools/build.js --sin-seo && node tools/export_data.js && python -X utf8 tools/make_seo_pages.py",
+    "package:windows": "python tools/package_windows.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Max-FullTek/pokesurvivor.git"
+  },
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "devDependencies": {
+    "javascript-obfuscator": "4.1.1",
+    "jsdom": "26.1.0",
+    "terser": "5.44.0"
+  },
+  "private": true
+}

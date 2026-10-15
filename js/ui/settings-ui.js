@@ -7,7 +7,7 @@ G.SettingsUI = (() => {
   const $ = G.UI.$;
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const VERSION = '1.2 · 2026-10-09';
-  const REPO = 'https://github.com/JPTER78/pokesurvivor';
+  const REPO = 'https://github.com/Max-FullTek/pokesurvivor';
   let tab = 'sound';
 
   function init() {
@@ -75,7 +75,7 @@ G.SettingsUI = (() => {
     } else if (tab === 'gfx') {
       const auto = ['baja', 'media', 'alta'][G.Settings.autoLevel];
       box.innerHTML = section('Idioma', 'El juego se recarga al cambiarlo.')
-        + `<div class="chips set-chips" translate="no">${[['es', 'Español'], ['en', 'English']].map(([v, l]) =>
+        + `<div class="chips set-chips" translate="no">${[['es', 'Español'], ['en', 'English'], ['zh-Hant', '繁體中文']].map(([v, l]) =>
              `<button class="chip ${G.I18n.lang === v ? 'on' : ''}" data-lang="${v}">${l}</button>`).join('')}</div>`
         + section('Calidad', 'Cuántos efectos y partículas se dibujan. <b>Auto</b> la baja sola si el juego va a tirones (ahora: ' + auto + ').')
         + choice('quality', [['auto', 'Auto'], ['high', 'Alta'], ['mid', 'Media'], ['low', 'Baja']])
@@ -93,6 +93,10 @@ G.SettingsUI = (() => {
         + choice('stick', [[0.8, 'Pequeño'], [1, 'Normal'], [1.25, 'Grande']])
         + `<div class="set-row"><div class="grow"><b>Colocar los botones</b><small>Pon los ataques, la pausa y el joystick (fijo, si quieres) donde quieras de la pantalla.</small></div>
              <button class="btn small" id="set-layout">Colocar</button></div>`
+        + section('Mando (Windows)', 'Conecta un mando y pulsa un botón.')
+        + '<p class="sub">Stick izquierdo: moverse · Cruceta: movimientos 1–4 · LB/RB: cambiar movimiento · Start: pausa.</p>'
+        + '<p class="sub">Menús: stick o cruceta para navegar · A: confirmar · B: volver · X: cambiar cartas.</p>'
+        + '<p class="note">Los nombres de los botones siguen las posiciones de Xbox. Para escribir el nombre y la contraseña, usa el teclado.</p>'
         + section('En PC')
         + `<div class="keys">
              <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o flechas</div><span>moverse</span>

@@ -1,5 +1,41 @@
 # PokéSurvivor · Mundo Misterioso
 
+## 繁體中文＋Windows 手把衍生版
+
+此倉庫直接 fork 自 [JPTER78/pokesurvivor](https://github.com/JPTER78/pokesurvivor)，原作者為 JPTER78。免費、非商業用途；本版加入繁體中文與標準瀏覽器手把支援，保留原版自動瞄準與攻擊玩法。
+
+### 下載與執行（Windows）
+
+1. 開啟 [Actions → Windows download](https://github.com/Max-FullTek/pokesurvivor/actions/workflows/windows.yml)，選擇最新成功的執行記錄。
+2. 在 Artifacts 下載 `PokeSurvivor-Windows-zh-Hant`（下載需登入 GitHub；保留 30 天，可用 Run workflow 重新產生）。
+3. 完整解壓縮，雙擊 `index.html`，使用 Edge 或 Chrome 開啟。保留 `assets`、`css`、`js` 資料夾，無須安裝 Node.js 或 Python。
+4. 首次以滑鼠點一下頁面啟用音效，連接手把並按任意按鈕。中文瀏覽器會自動使用繁中；也可在「設定 → 畫面 → 語言」選擇「繁體中文」。
+
+| 手把（依 Xbox 按鈕位置） | 功能 |
+|---|---|
+| 左搖桿 | 類比移動；選單內移動選取框 |
+| 十字鍵 | 遊戲中：上／右／下／左選招式 1／2／3／4；選單內：導航 |
+| LB／RB | 上一個／下一個招式 |
+| A／B | 選單確認／返回 |
+| Start | 暫停／繼續；子選單內返回 |
+| X | 升級畫面重抽選項 |
+
+選單選取框以黃色標示；滑鼠、鍵盤與觸控仍可使用。支援瀏覽器回報 `standard` mapping 的手把，實際相容性依手把、驅動與瀏覽器而異；登入欄位仍使用鍵盤輸入。手把失去焦點或拔除時會清除輸入。
+
+**存檔：** 本版停用原作者的 Firebase 設定，只使用目前瀏覽器的本機帳號與存檔，不能直接使用原站雲端存檔、好友、合作或排行榜。建立本機帳號可儲存進度；訪客模式不儲存。清除瀏覽器資料或更換開啟方式可能讓原存檔無法存取。
+
+### 開發與 Actions
+
+使用 Node.js 22、Python 3.12：`npm ci` → `npm test` → `npm run build` → `npm run package:windows`。結果在 `dist/PokeSurvivor-Windows-zh-Hant.zip`。
+
+推送至 `main` 或 `feat/**`、建立 PR、手動 Run workflow 都會執行相同檢查與打包。Actions 只上傳下載檔，不自動部署網站或發行 Release。遊戲頁面修改 `dev.html`，再產生 `index.html`；請勿手改生成檔。
+
+原作者上游：`git fetch upstream` 後，於工作樹乾淨時用 `git merge upstream/main` 整合更新；有衝突時檢查解決，再重新測試與建置。上游更新不會自動覆蓋本版功能。
+
+繁中靜態翻譯資料改編自 Kai5106 的 [MIT 補丁 v1.3.3](https://greasyfork.org/zh-TW/scripts/599869)，直接整合在既有語言系統，沒有載入補丁的執行程式或自動更新機制。詳見 [CREDITS.md](CREDITS.md) 及語言檔案內授權聲明。
+
+---
+
 Bullet-heaven con Pokémon al estilo de Survivor.io y Megabonk, con sprites de
 *Pokémon Mundo Misterioso*, capa roguelike, **966 Pokémon de las 9 generaciones**,
 shinies y gacha por región. Música y efectos compuestos para el juego.

@@ -297,6 +297,7 @@
 <div id="boot" class="boot">
   <div class="boot-in">
     <h1>PokéSurvivor</h1>
+    <p class="fork-note" translate="no">JPTER78 原作 · Max-FullTek 繁中＋手把衍生版</p>
     <p>A Pokémon survival game, free in your browser and on mobile.</p>
     <p class="boot-ld">Loading…</p>
   </div>
@@ -305,10 +306,15 @@
   (function () {
     var s = null; try { s = localStorage.getItem('ps.lang'); } catch (e) {}
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || 'es').toLowerCase();
-    var l = s === 'es' || s === 'en' ? s : (/\/en(\/|$)/.test(location.pathname) ? 'en' : (n.indexOf('es') === 0 ? 'es' : 'en'));
+    var l = s === 'es' || s === 'en' || s === 'zh-Hant' ? s : (/\/en(\/|$)/.test(location.pathname) ? 'en' : (n.indexOf('zh') === 0 ? 'zh-Hant' : n.indexOf('es') === 0 ? 'es' : 'en'));
     document.documentElement.lang = l;
+    if (l === 'zh-Hant') {
+      var p = document.querySelectorAll('#boot p:not(.fork-note)');
+      p[0].textContent = '免費寶可夢生存遊戲 · 繁體中文與手把衍生版';
+      p[1].textContent = '載入中…';
+    }
     if (l === 'en') {
-      var p = document.querySelectorAll('#boot p');
+      var p = document.querySelectorAll('#boot p:not(.fork-note)');
       p[0].textContent = 'A Pokémon survival game, free in your browser and on mobile.';
       p[1].textContent = 'Loading…';
     }
@@ -317,6 +323,7 @@
 <div id="tap-start" class="tapstart hidden">
   <div class="boot-in">
     <h1>PokéSurvivor</h1>
+    <p class="fork-note" translate="no">JPTER78 原作 · Max-FullTek 繁中＋手把衍生版</p>
     <p>Sobrevive a las hordas con tu compañero Pokémon</p>
     <p class="tap-blink">Pulsa para empezar</p>
   </div>
@@ -325,6 +332,7 @@
   <div class="boot noscript">
     <div class="boot-in">
       <h1>PokéSurvivor</h1>
+    <p class="fork-note" translate="no">JPTER78 原作 · Max-FullTek 繁中＋手把衍生版</p>
       <p>PokéSurvivor necesita JavaScript para funcionar. Actívalo para jugar.</p>
       <p>Fan game gratuito de supervivencia con 966 Pokémon de las 9 regiones: elige tu compañero, sobrevive a las hordas, evoluciona tus ataques, enfréntate a legendarios y juega en cooperativo con hasta 4 amigos.</p>
       <p><a href="en/guide/">Guía del juego</a> · <a href="en/pokedex/">Pokédex: todos los Pokémon jugables</a></p>    </div>
@@ -533,7 +541,8 @@
 <section id="scr-pause" class="scr dim hidden">
   <div class="box center" style="width:min(460px,100%)">
     <h2>Pausa</h2>
-    <p class="sub kbd-hint"><kbd>WASD</kbd> moverse · <kbd>1</kbd>–<kbd>4</kbd> movimiento · <kbd>Q</kbd>/<kbd>E</kbd> ciclar · <kbd>Esc</kbd> pausa</p>
+    <p class="sub kbd-hint"><kbd>WASD</kbd> moverse · <kbd>1</kbd>–<kbd>4</kbd> elegir ataque · <kbd>Q</kbd>/<kbd>E</kbd> ciclar · <kbd>Esc</kbd> pausa</p>
+    <p class="sub">Stick izquierdo: moverse · Cruceta: movimientos 1–4 · LB/RB: cambiar movimiento · Start: pausa.</p>
     <p class="sub touch-hint">Arrastra el dedo para moverte · toca un ataque para cambiarlo</p>
     <p id="pause-coop" class="note hidden">Partida en grupo: el juego sigue mientras estás aquí.</p>
     <div id="pause-sound" class="sound-inline"></div>
@@ -554,6 +563,6 @@
 </section>
 
 <!-- datos generados -->
-<script defer src="js/app.min.js?v=bc2124ff1d"></script>
+<script defer src="js/app.min.js?v=bb6aab9d32"></script>
 </body>
 </html>
